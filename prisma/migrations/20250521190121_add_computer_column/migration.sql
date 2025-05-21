@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "User" ADD COLUMN     "computer" TEXT NOT NULL DEFAULT 'basic',
+ADD COLUMN     "level" INTEGER NOT NULL DEFAULT 0;

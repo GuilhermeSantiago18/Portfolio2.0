@@ -3,6 +3,7 @@ export interface UserProps {
   email: string;
   password: string;
   computer?: string;
+  level?: string;
   [key: string]: unknown;
 }
 
