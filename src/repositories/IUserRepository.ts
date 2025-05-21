@@ -1,4 +1,4 @@
-import { User } from "../entities.ts/User";
+import { User } from "../entities/user/User";
 
 export interface IUserRepository {
   create(user: User): Promise<User>;

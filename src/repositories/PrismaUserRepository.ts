@@ -1,22 +1,26 @@
 import { IUserRepository } from './IUserRepository';
-import { User } from '../entities.ts/User';
+import { User } from '../entities/user/User';
 import {PrismaClient} from '../database/prisma/client';
+
 const prisma = new PrismaClient()
 
 export class PrismaUserRepository implements IUserRepository {
   async create(user: User): Promise<User> {
+    const data = user.toPrimitives();
+
     const created = await prisma.user.create({
       data: {
-        
-        name: user.name,
-        email: user.email,
-        password: user.password,
+        name: data.name,
+        email: data.email,
+        password: data.password,
       },
     });
-    return created;
+
+    return new User(created, created.id);
   }
 
   async findByEmail(email: string): Promise<User | null> {
-    return prisma.user.findUnique({ where: { email } });
+    const user = await prisma.user.findUnique({ where: { email } });
+    return user ? new User(user, user.id) : null;
   }
 }
