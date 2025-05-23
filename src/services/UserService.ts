@@ -6,7 +6,7 @@ import { AppError } from '../errors/AppError';
 type CreateUserRequest = Pick<UserProps, 'name' | 'email' | 'password' | 'computer'>;
 
 
-export class CreateUserService {
+export class UserService {
   constructor(private userRepository: IUserRepository) {}
 
   async createNewUser(data: CreateUserRequest) {
@@ -17,4 +17,10 @@ export class CreateUserService {
 
     return this.userRepository.create(user);
   }
+
+  async getAll() {
+    const allUsers = await this.userRepository.findMany()
+    if (allUsers.length === 0) throw new AppError('Users not found', 404)
+  }
 }
+

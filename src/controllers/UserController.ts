@@ -1,13 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
-import { CreateUserService } from '../services/UserService';
+import { UserService } from '../services/UserService';
 import { AppError } from '../errors/AppError';
 
 export class UserController {
-  constructor(private readonly createUserService: CreateUserService) {}
+  constructor(private readonly UserService: UserService) {}
 
   create = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      const user = await this.createUserService.createNewUser(req.body);
+      const user = await this.UserService.createNewUser(req.body);
       res.status(201).json(user);
     } catch (err: unknown) {
       if (err instanceof AppError) {
@@ -17,4 +17,11 @@ export class UserController {
       }
     }
   };
+
+  getAll = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const allUsers = await this.UserService.getAll();
+      res.status(201).json(allUsers)
+    }
+  }
 }
