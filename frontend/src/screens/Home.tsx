@@ -1,11 +1,8 @@
-import ChatInput from '../components/Chat/ChatInput';
-
 
 const Home = () => {
   return (
-    <div style={{ padding: '2rem' }}>
+    <div style={{ width: '100vw', height: '100vh' }}>
 
-      <ChatInput />
     </div>
   );
 };
