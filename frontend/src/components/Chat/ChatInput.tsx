@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useThemeStore } from '../../stores/useThemeStore';
 import { themeFactory } from '../../utils/themeFactory';
 import { TypingResponse } from './typingResponse';
+import { useTranslation } from 'react-i18next';
 
 const api = import.meta.env.VITE_BACKEND_URL;
 
@@ -10,6 +11,7 @@ const api = import.meta.env.VITE_BACKEND_URL;
 const ChatInput = () => {
   const [message, setMessage] = useState('');
   const [response, setResponse] = useState('');
+    const { t } = useTranslation();
 
   const themeType = useThemeStore(state => state.theme);
   const theme = themeFactory(themeType);
@@ -38,13 +40,13 @@ const ChatInput = () => {
         }}
         value={message}
         onChange={(e) => setMessage(e.target.value)}
-        placeholder="Digite sua mensagem..."
+        placeholder={t('placeholder')}
       />
-      <button onClick={handleSend}>Enviar</button>
+      <button onClick={handleSend}>{t('send')}</button>
 
       {response && (
         <div style={{ marginTop: '1rem' }}>
-          <strong>Resposta:</strong>
+          <strong>Guilherme AI:</strong>
           <p>{response && <TypingResponse text={response} />}</p>
         </div>
       )}
