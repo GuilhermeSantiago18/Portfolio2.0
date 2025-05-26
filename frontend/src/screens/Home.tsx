@@ -14,7 +14,7 @@ const Home: React.FC = () => {
   const { primaryColor } = useThemeStore();
   const { t } = useTranslation();
 
-  const cardKeys = ['experience', 'projects', 'GuilhermeAI', 'contact'];
+  const cardKeys = ['experience', 'projects', 'guilherme_AI', 'contact'];
 
 const cardsData: CardData[] = cardKeys.map((key) => ({
   title: t(`home.${key}.title`),
@@ -38,6 +38,7 @@ const cardsData: CardData[] = cardKeys.map((key) => ({
               backgroundColor={primaryColor}
               title={title}
               description={description}
+              onClick={() => console.log("Clicou")}
             />
           );
 
