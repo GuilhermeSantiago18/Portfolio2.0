@@ -8,7 +8,7 @@ const Home = () => {
 
   return (
     <main className="min-h-screen p-10 md:p-50 flex flex-col justify-start items-center gap-8">
-      <section className="text-center max-w-3xl">
+      <section className="text-center max-w-3xl h-40">
         <h2 className="text-4xl font-bold mb-4">
           {t('home.greeting', { name: OWNER_NAME })}
         </h2>
@@ -25,7 +25,7 @@ transition-transform duration-200">
         </div>
 
         <div style={{backgroundColor: primaryColor}} className="dark:bg-gray-800 p-6 rounded-lg shadow-md hover:scale-105
-transition-transform duration-200">
+transition-transform duration-200 h-40">
           <h3 className="text-2xl font-semibold mb-2">{t('home.projects.title')}</h3>
           <p>{t('home.projects.description')}</p>
         </div>
