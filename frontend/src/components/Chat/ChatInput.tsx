@@ -2,6 +2,10 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useThemeStore } from '../../stores/useThemeStore';
 import { themeFactory } from '../../utils/themeFactory';
+import { TypingResponse } from './typingResponse';
+
+const api = import.meta.env.VITE_BACKEND_URL;
+
 
 const ChatInput = () => {
   const [message, setMessage] = useState('');
@@ -13,7 +17,7 @@ const ChatInput = () => {
   const handleSend = async () => {
     if (!message.trim()) return;
     try {
-      const res = await axios.post(process.env.BACKEND_URL, { message });
+      const res = await axios.post(`${api}/chat`, { message });
       setResponse(res.data.response);
     } catch (err) {
       setResponse('Erro ao conectar com o servidor.');
@@ -41,7 +45,7 @@ const ChatInput = () => {
       {response && (
         <div style={{ marginTop: '1rem' }}>
           <strong>Resposta:</strong>
-          <p>{response}</p>
+          <p>{response && <TypingResponse text={response} />}</p>
         </div>
       )}
     </div>

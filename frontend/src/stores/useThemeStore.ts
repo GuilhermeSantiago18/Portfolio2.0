@@ -1,4 +1,3 @@
-// src/store/useThemeStore.ts
 import {create} from 'zustand';
 import { THEME_LIGHT, THEME_DARK, type ThemeType } from '../constants/theme';
 
