@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 export const Header = () => {
   const { t } = useTranslation();
-  const { theme, toggleTheme, setCustomTheme, primaryColor } = useThemeStore();
+  const { theme, toggleTheme, setCustomTheme } = useThemeStore();
 
   const [showPicker, setShowPicker] = useState(false);
   const [tempColor, setTempColor] = useState('#4f46e5');
@@ -24,7 +24,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="flex flex-col items-end p-4 rounded-2xl relative z-50">
+    <header className="flex flex-row justify-around md:flex-col md:items-end p-4 mr-10 md:mr-8 rounded-2xl relative z-50 min-w-screen">
       <div className="flex items-center gap-2">
         <button
           onClick={toggleTheme}
