@@ -2,6 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors'
 import userRoutes from './routes/UserRoutes'
+import chatRoutes from './routes/chatOpenAI'
 import errorHandler from './middlewares/ErrorHandler';
 
 dotenv.config();
@@ -18,6 +19,7 @@ app.get('/', (_req, res) => {
 
 
 app.use('/api', userRoutes);
+app.use('/api', chatRoutes);
 app.use(errorHandler)
 
 

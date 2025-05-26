@@ -1,9 +1,9 @@
-import { OpenAIChatRepository } from '../repositories/OpenAiChatRepository';
+import { OpenAiChatRepository } from '../repositories/OpenAiChatRepository';
 
 export class ChatService {
-  private chatRepository: OpenAIChatRepository;
+  private chatRepository: OpenAiChatRepository;
 
-  constructor(chatRepository: OpenAIChatRepository) {
+  constructor(chatRepository: OpenAiChatRepository) {
     this.chatRepository = chatRepository;
   }
 

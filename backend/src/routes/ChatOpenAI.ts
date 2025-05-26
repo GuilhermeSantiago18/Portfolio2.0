@@ -2,11 +2,11 @@
 import { Router } from 'express';
 import { ChatService } from '../services/ChatService';
 import { ChatController } from '../controllers/ChatController';
-import { OpenAIChatRepository } from '../repositories/OpenAiChatRepository';
+import { OpenAiChatRepository } from '../repositories/OpenAiChatRepository';
 
 const router = Router();
 
-const chatRepo = new OpenAIChatRepository();
+const chatRepo = new OpenAiChatRepository();
 const chatService = new ChatService(chatRepo);
 const chatController = new ChatController(chatService);
 

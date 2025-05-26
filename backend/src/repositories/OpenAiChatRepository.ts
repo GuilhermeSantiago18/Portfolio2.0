@@ -1,20 +1,31 @@
 import OpenAI from 'openai';
+import fs from 'fs';
+import path from 'path';
 
-export class OpenAIChatRepository {
-  private openai: OpenAI;
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
 
-  constructor() {
-    this.openai = new OpenAI({
-      apiKey: process.env.OPENAI_API_KEY!,
-    });
-  }
+const contextPath = path.join(__dirname, '../utils/guilherme-context.txt');
+const guilhermeContext = fs.readFileSync(contextPath, 'utf-8');
 
+export class OpenAiChatRepository {
   async sendMessage(message: string): Promise<string> {
-    const completion = await this.openai.chat.completions.create({
-      messages: [{ role: 'user', content: message }],
-      model: 'gpt-3.5-turbo',
+    const response = await openai.chat.completions.create({
+      model: 'gpt-4',
+      messages: [
+        {
+          role: 'system',
+          content: guilhermeContext,
+        },
+        {
+          role: 'user',
+          content: message,
+        },
+      ],
+      temperature: 0.7,
     });
 
-    return completion.choices[0].message.content || 'Sem resposta';
+    return response.choices[0].message.content || 'Erro ao gerar resposta.';
   }
 }
