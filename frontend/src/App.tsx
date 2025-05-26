@@ -13,7 +13,7 @@ function App() {
       <Header />
 
       <Home />
-            <ChatInput />
+      <ChatInput />
     </div>
   );
 }

@@ -36,7 +36,7 @@ const ChatInput = () => {
       backgroundColor: primaryColor,
       borderColor: primaryColor,
     }}
-    className="flex justify-center w-3/4 max-w-md h-12 rounded-md border focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200"
+    className="flex justify-center p-2 w-3/4 max-w-md h-12 rounded-md border focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200"
     value={message}
     onChange={(e) => setMessage(e.target.value)}
     placeholder={t('chatOpenAI.placeholder')}

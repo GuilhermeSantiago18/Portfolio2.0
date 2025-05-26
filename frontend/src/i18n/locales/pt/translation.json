@@ -7,7 +7,7 @@
     "customize": "Personalize"
   },
   "chatOpenAI": {
-    "placeholder": "Escreva sua dúvida ou curiosidade sobre Guilherme...",
+    "placeholder": "Escreva sua dúvida sobre mim...",
       "send": "Enviar"
   },
   "home": {

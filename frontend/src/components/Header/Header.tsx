@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 export const Header = () => {
   const { t } = useTranslation();
-  const { theme, toggleTheme, setCustomTheme } = useThemeStore();
+  const { theme, toggleTheme, setCustomTheme, primaryColor } = useThemeStore();
 
   const [showPicker, setShowPicker] = useState(false);
   const [tempColor, setTempColor] = useState('#4f46e5');
@@ -36,8 +36,7 @@ export const Header = () => {
 
         <button
           onClick={() => setShowPicker(true)}
-          // style={{backgroundColor: primaryColor}}
-          className="px-3 py-1 rounded text-black  hover:bg-gray-200 dark:hover:bg-gray-700"
+          className="px-3 py-1 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
         >
           🎨 {t('header.customize')}
         </button>
