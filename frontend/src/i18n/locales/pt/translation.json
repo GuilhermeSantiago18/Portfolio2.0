@@ -6,20 +6,29 @@
     "confirm_color": "Selecionar cor",
     "customize": "Personalize"
   },
-  "chatOpenAI": {
+   "chatOpenAI": {
     "placeholder": "Escreva sua dúvida sobre mim...",
-      "send": "Enviar"
+    "send": "Enviar"
   },
   "home": {
     "greeting": "Olá, eu sou {{name}} 👋",
     "intro": "Sou desenvolvedor full stack com experiência internacional e foco em soluções elegantes e funcionais.",
     "experience": {
       "title": "🚀 Experiência",
-      "description": "2 anos atuando com empresas internacionais como Jazmin Chebar, Bembos e MasBien."
+      "description": "2+ anos de experiência internacional trabalhando com alguns clientes LATAM."
     },
     "projects": {
       "title": "💻 Projetos Reais",
-      "description": "Confira alguns dos meus trabalhos em React, Node.js, React Native, PostgreSQL e outras tecnologias modernas."
-    }
+      "description": "Confira alguns dos meus trabalhos utilizando  React Native , Node.js e outras tecnologias modernas."
+    },
+     "contact": {
+      "title": "📬 Contato",
+      "description": "Entre em contato comigo para oportunidades, colaborações ou só para dizer oi!"
+    },
+    "GuilhermeAI": 
+     { 
+      "title": "🧠 Guilherme AI",
+    "description": "Converse comigo em tempo real e tire suas dúvidas diretamente com a minha inteligência artificial personalizada."
   }
+   } 
 }

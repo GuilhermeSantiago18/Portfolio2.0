@@ -11,7 +11,6 @@ function App() {
   return (
     <div style={{ background: theme.background, color: theme.text}}>
       <Header />
-
       <Home />
       <ChatInput />
     </div>

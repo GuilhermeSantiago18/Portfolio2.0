@@ -8,7 +8,7 @@ import { useTranslation } from 'react-i18next';
 
 export const Header = () => {
   const { t } = useTranslation();
-  const { theme, toggleTheme, setCustomTheme, primaryColor } = useThemeStore();
+  const { theme, toggleTheme, setCustomTheme } = useThemeStore();
 
   const [showPicker, setShowPicker] = useState(false);
   const [tempColor, setTempColor] = useState('#4f46e5');

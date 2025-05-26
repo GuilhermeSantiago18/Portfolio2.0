@@ -2,11 +2,11 @@
   "chat_title": "Guilherme's Portfolio",
   "change_theme": "Switch theme",
   "change_language": "Change language",
-   "header": {
+  "header": {
     "confirm_color": "Select color",
     "customize": "Customize"
   },
-   "chatOpenAI": {
+  "chatOpenAI": {
     "placeholder": "Type your question about me...",
     "send": "Send"
   },
@@ -15,11 +15,19 @@
     "intro": "I'm a full stack developer with international experience, focused on building elegant and functional solutions.",
     "experience": {
       "title": "🚀 Experience",
-      "description": "2 years working with international companies like Jazmin Chebar, Bembos and MasBien."
+      "description": "Over 2+ years of international experience working with various LATAM clients."
     },
     "projects": {
       "title": "💻 Real Projects",
-      "description": "Take a look at some of my work using React, Node.js, React Native, PostgreSQL, and other modern tech."
+      "description": "Take a look at some of my work using React Native, Node.js and other modern technologies."
+    },
+    "contact": {
+      "title": "📬 Contact",
+      "description": "Reach out for opportunities, collaborations or just to say hello!"
+    },
+    "GuilhermeAI": {
+      "title": "🧠 Guilherme AI",
+      "description": "Chat with me in real time and ask anything directly to my personalized AI assistant."
     }
   }
 }

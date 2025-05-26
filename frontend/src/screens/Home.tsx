@@ -1,37 +1,56 @@
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { OWNER_NAME } from '../constants/constants';
 import { useThemeStore } from '../stores/useThemeStore';
 import ScrollTo from '../components/ScrollTo';
+import Card from '../components/Home/HomeCard';
 
-const Home = () => {
-    const {primaryColor} = useThemeStore()
+interface CardData {
+  title: string;
+  description: string;
+}
+
+const Home: React.FC = () => {
+  const { primaryColor } = useThemeStore();
   const { t } = useTranslation();
 
+  const cardKeys = ['experience', 'projects', 'GuilhermeAI', 'contact'];
+
+const cardsData: CardData[] = cardKeys.map((key) => ({
+  title: t(`home.${key}.title`),
+  description: t(`home.${key}.description`)
+}));
+
   return (
-    <main className="min-h-screen p-10 md:p-50 flex flex-col justify-start items-center gap-8">
+    <main className="min-h-screen p-10 md:p-40 flex flex-col justify-start items-center gap-8">
       <section className="text-center max-w-3xl h-40">
         <h2 className="text-4xl font-bold mb-4">
           {t('home.greeting', { name: OWNER_NAME })}
         </h2>
-        <p className="text-lg">
-          {t('home.intro')}
-        </p>
+        <p className="text-lg">{t('home.intro')}</p>
       </section>
 
-      <section className="w-full max-w-4xl grid md:grid-cols-2 gap-6 mt-12 h-8 cursor-pointer">
-        <ScrollTo targetId='guilherme-ai'>
-        <div style={{backgroundColor: primaryColor}} className="dark:bg-gray-800 p-6 rounded-lg shadow-md hover:scale-105
-transition-transform duration-200 max-w-full break-words min-h-45">
-          <h3 className="text-2xl font-semibold mb-2">{t('home.experience.title')}</h3>
-          <p>{t('home.experience.description')}.</p>
-        </div>
-        </ScrollTo>
+      <section className="w-full max-w-4xl grid md:grid-cols-2 gap-6 mt-12 h-8">
+        {cardsData.map(({ title, description }, index) => {
+          const cardContent = (
+            <Card
+              key={`${title}-${index}`}
+              backgroundColor={primaryColor}
+              title={title}
+              description={description}
+            />
+          );
 
-        <div style={{backgroundColor: primaryColor}} className="dark:bg-gray-800 p-6 rounded-lg shadow-md hover:scale-105
-transition-transform duration-200 max-w-full break-words min-h-45">
-          <h3 className="text-2xl font-semibold mb-2">{t('home.projects.title')}</h3>
-          <p>{t('home.projects.description')}</p>
-        </div>
+          if (index === 0) {
+            return (
+              <ScrollTo key={`${title}-${index}`} targetId="guilherme-ai">
+                {cardContent}
+              </ScrollTo>
+            );
+          }
+
+          return cardContent;
+        })}
       </section>
     </main>
   );
