@@ -22,6 +22,12 @@ export class UserController {
     try {
       const allUsers = await this.UserService.getAll();
       res.status(201).json(allUsers)
+    } catch(err: unknown) {
+        if (err instanceof AppError) {
+        res.status(err.statusCode).json({ error: err.message });
+      } else {
+        next(err);
+      }
     }
   }
 }

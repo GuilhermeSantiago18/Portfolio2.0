@@ -9,6 +9,6 @@ const userRepository = new PrismaUserRepository();
 const createUserService = new UserService(userRepository);
 const userController = new UserController(createUserService);
 
-router.get('/users', userController.create);
-router.post('/users', userController.getAll);
+router.get('/users', userController.getAll);
+router.post('/users', userController.create);
 export default router;
