@@ -1,0 +1,52 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+
+jobs:
+  test-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 18
+
+    # Backend
+    - name: Install backend dependencies
+      working-directory: ./backend
+      run: npm install
+
+    - name: Run backend tests
+      working-directory: ./backend
+      run: npm test
+
+    # Frontend
+    - name: Install frontend dependencies
+      working-directory: ./frontend
+      run: npm install
+
+    - name: Run frontend tests
+      working-directory: ./frontend
+      run: npm test
+
+    - name: Deploy backend
+      if: success()
+      working-directory: ./backend
+      run: |
+        # Comandos para deploy backend
+        echo "Deploy backend aqui"
+
+    - name: Deploy frontend
+      if: success()
+      working-directory: ./frontend
+      run: |
+        # Comandos para deploy frontend
+        echo "Deploy frontend aqui"
