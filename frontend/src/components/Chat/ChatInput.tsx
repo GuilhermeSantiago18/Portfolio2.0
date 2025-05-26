@@ -13,8 +13,8 @@ const ChatInput = () => {
   const [response, setResponse] = useState('');
     const { t } = useTranslation();
 
-  const themeType = useThemeStore(state => state.theme);
-  const theme = themeFactory(themeType);
+  const {primaryColor} = useThemeStore();
+
 
   const handleSend = async () => {
     if (!message.trim()) return;
@@ -27,21 +27,20 @@ const ChatInput = () => {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        style={{
-          background: theme.inputBackground,
-          color: theme.text,
-          border: `1px solid ${theme.borderColor}`,
-          padding: '0.5rem',
-          width: '100%',
-          marginBottom: '1rem'
-        }}
-        value={message}
-        onChange={(e) => setMessage(e.target.value)}
-        placeholder={t('placeholder')}
-      />
+
+    <div id='guilherme-ai' className='flex justify-center flex-col items-center'>
+          <h1>Guilherme AI</h1>
+       <input
+    type="text"
+    style={{
+      backgroundColor: primaryColor,
+      borderColor: primaryColor,
+    }}
+    className="flex justify-center w-3/4 max-w-md h-12 rounded-md border focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200"
+    value={message}
+    onChange={(e) => setMessage(e.target.value)}
+    placeholder={t('chatOpenAI.placeholder')}
+  />
       <button onClick={handleSend}>{t('send')}</button>
 
       {response && (

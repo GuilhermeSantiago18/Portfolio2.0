@@ -6,6 +6,10 @@
     "confirm_color": "Selecionar cor",
     "customize": "Personalize"
   },
+  "chatOpenAI": {
+    "placeholder": "Escreva sua dúvida ou curiosidade sobre Guilherme...",
+      "send": "Enviar"
+  },
   "home": {
     "greeting": "Olá, eu sou {{name}} 👋",
     "intro": "Sou desenvolvedor full stack com experiência internacional e foco em soluções elegantes e funcionais.",
