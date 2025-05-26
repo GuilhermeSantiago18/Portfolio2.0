@@ -1,7 +1,17 @@
 {
-  "chat_title": "Converse com minha IA",
-  "send": "Enviar",
-  "placeholder": "Digite sua mensagem aqui...",
-  "change_theme": "Mudar para tema escuro",
-  "typing": "IA está digitando..."
+  "chat_title": "Portfólio de Guilherme",
+  "change_theme": "Alterar tema",
+  "change_language": "Mudar idioma",
+  "home": {
+    "greeting": "Olá, eu sou {{name}} 👋",
+    "intro": "Sou desenvolvedor full stack com experiência internacional e foco em soluções elegantes e funcionais.",
+    "experience": {
+      "title": "🚀 Experiência",
+      "description": "2 anos atuando com empresas internacionais como Jazmin Chebar, Bembos e MasBien."
+    },
+    "projects": {
+      "title": "💻 Projetos Reais",
+      "description": "Confira alguns dos meus trabalhos em React, Node.js, React Native, PostgreSQL e outras tecnologias modernas."
+    }
+  }
 }

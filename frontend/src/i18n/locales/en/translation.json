@@ -1,7 +1,17 @@
 {
-  "chat_title": "Chat with my AI",
-  "send": "Send",
-  "placeholder": "Type your message here...",
-  "change_theme": "Change to Dark Theme",
-  "typing": "AI is typing..."
+  "chat_title": "Guilherme's Portfolio",
+  "change_theme": "Switch theme",
+  "change_language": "Change language",
+  "home": {
+    "greeting": "Hi, I'm {{name}} 👋",
+    "intro": "I'm a full stack developer with international experience, focused on building elegant and functional solutions.",
+    "experience": {
+      "title": "🚀 Experience",
+      "description": "2 years working with international companies like Jazmin Chebar, Bembos and MasBien."
+    },
+    "projects": {
+      "title": "💻 Real Projects",
+      "description": "Take a look at some of my work using React, Node.js, React Native, PostgreSQL, and other modern tech."
+    }
+  }
 }

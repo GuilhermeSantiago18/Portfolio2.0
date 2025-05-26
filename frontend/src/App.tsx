@@ -8,7 +8,7 @@ function App() {
   const theme = themeFactory(themeType);
 
   return (
-    <div style={{ background: theme.background, color: theme.text, minHeight: '30vh'}}>
+    <div style={{ background: theme.background, color: theme.text}}>
       <Header />
       <Home />
     </div>

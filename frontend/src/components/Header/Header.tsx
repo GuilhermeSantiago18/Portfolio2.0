@@ -9,11 +9,11 @@ export const Header = () => {
   const { theme, toggleTheme } = useThemeStore();
 
   return (
-    <header className="flex flex-col items-center rounded-2xl">
-      <div className="flex items-center">
+    <header className="flex flex-col items-end rounded-2xl p-4">
+      <div className="flex ">
         <button
           onClick={toggleTheme}
-          className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition"
+          className="p-2 rounded-full hover:bg-gray-200"
           title={t('change_theme')}
         >
           {theme === THEME_DARK ? <Sun size={20} /> : <Moon size={20} />}
