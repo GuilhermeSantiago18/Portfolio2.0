@@ -13,7 +13,7 @@ model User {
   name      String
   email     String   @unique
   password  String
-  level     Int      @default(0)
-  computer  String   @default("basic")
   createdAt DateTime @default(now())
+  computer  String   @default("basic")
+  level     Int      @default(0)
 }

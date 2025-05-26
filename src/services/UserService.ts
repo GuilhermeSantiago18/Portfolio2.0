@@ -21,6 +21,8 @@ export class UserService {
   async getAll() {
     const allUsers = await this.userRepository.findMany()
     if (allUsers.length === 0) throw new AppError('Users not found', 404)
+
+    return allUsers
   }
 }
 

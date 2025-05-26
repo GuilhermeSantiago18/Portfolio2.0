@@ -21,7 +21,7 @@ export class UserController {
   getAll = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const allUsers = await this.UserService.getAll();
-      res.status(201).json(allUsers)
+      res.status(200).json(allUsers)
     } catch(err: unknown) {
         if (err instanceof AppError) {
         res.status(err.statusCode).json({ error: err.message });
