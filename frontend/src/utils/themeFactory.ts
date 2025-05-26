@@ -1,13 +1,9 @@
-import { THEME_DARK, THEME_LIGHT, type ThemeType } from '../constants/theme';
-import { lightTheme, darkTheme } from '../styles/themes/themeStyle';
+import { THEME_LIGHT } from '../constants/theme';
+import { useThemeStore } from '../stores/useThemeStore';
+import { getThemeFromColor } from './themeGenerator';
 
-export const themeFactory = (type: ThemeType) => {
-  switch (type) {
-    case THEME_LIGHT:
-      return lightTheme;
-    case THEME_DARK:
-      return darkTheme;
-    default:
-      return lightTheme;
-  }
+export const themeFactory = (themeType: string) => {
+  const { theme, primaryColor } = useThemeStore.getState();
+  const themes = getThemeFromColor(primaryColor);
+  return theme === THEME_LIGHT ? themes.light : themes.dark;
 };

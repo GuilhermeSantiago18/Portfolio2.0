@@ -1,17 +1,25 @@
-import {create} from 'zustand';
-import { THEME_LIGHT, THEME_DARK, type ThemeType } from '../constants/theme';
+// stores/useThemeStore.ts
+import { create } from 'zustand';
 
 interface ThemeState {
-  theme: ThemeType;
-  setTheme: (theme: ThemeType) => void;
+  theme: 'light' | 'dark';
+  primaryColor: string;
   toggleTheme: () => void;
+  setPrimaryColor: (color: string) => void;
+  setCustomTheme: (theme: 'light' | 'dark', primaryColor: string) => void; 
 }
 
 export const useThemeStore = create<ThemeState>((set, get) => ({
-  theme: THEME_LIGHT,
-  setTheme: (theme: ThemeType) => set({ theme }),
+  theme: 'light',
+  primaryColor: '#f72585',
   toggleTheme: () => {
-    const currentTheme = get().theme;
-    set({ theme: currentTheme === THEME_LIGHT ? THEME_DARK : THEME_LIGHT });
-  }
+    const newTheme = get().theme === 'light' ? 'dark' : 'light';
+    set({ theme: newTheme });
+  },
+  setPrimaryColor: (color) => {
+    set({ primaryColor: color });
+  },
+  setCustomTheme: (theme, primaryColor) => {
+    set({ theme, primaryColor });
+  },
 }));

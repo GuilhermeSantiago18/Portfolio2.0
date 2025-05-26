@@ -2,6 +2,10 @@
   "chat_title": "Guilherme's Portfolio",
   "change_theme": "Switch theme",
   "change_language": "Change language",
+   "header": {
+    "confirm_color": "Select color",
+    "customize": "Customize"
+  },
   "home": {
     "greeting": "Hi, I'm {{name}} 👋",
     "intro": "I'm a full stack developer with international experience, focused on building elegant and functional solutions.",
