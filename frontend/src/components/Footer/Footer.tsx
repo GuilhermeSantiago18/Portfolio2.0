@@ -8,7 +8,7 @@ const Footer = () => {
     <footer id='contact' className="flex flex-col items-center space-y-4 p-4 bg-gray-900 text-white">
       <div className="flex space-x-6">
         <a
-          href="https://www.linkedin.com/in/seu-perfil"
+          href="https://www.linkedin.com/in/guilherme-santiago-dev"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
@@ -18,7 +18,7 @@ const Footer = () => {
         </a>
 
         <a
-          href="https://github.com/seu-usuario"
+          href="https://github.com/guilhermesantiago18"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
@@ -28,7 +28,7 @@ const Footer = () => {
         </a>
 
         <a
-          href="https://wa.me/seu-numero-com-ddd"
+          href="https://wa.me/5584996187958"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="WhatsApp"
