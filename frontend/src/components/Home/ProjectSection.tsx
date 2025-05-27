@@ -28,7 +28,7 @@ const ProjectsSection: React.FC = () => {
 
   return (
     <section id="real-projects" className="mt-20">
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="w-full max-w-4xl grid gap-6 grid mt-6 md:grid-cols-3 gap-4">
         {projects.map((project) => (
           <ProjectCard key={project.name} {...project} />
         ))}

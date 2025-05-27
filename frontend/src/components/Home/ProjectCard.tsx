@@ -19,7 +19,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, playstore, appst
         className="w-full max-h-60 object-contain rounded-xl mb-4 bg-white p-2"
       />
 
-      <div className="flex gap-4 justify-center align-center">
+      <div className="flex gap-4 justify-center items-center">
         <a href={playstore} target="_blank" rel="noopener noreferrer">
           <img
             src={GOOGLE_PLAY_BADGE}
@@ -31,7 +31,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ name, image, playstore, appst
           <img
             src={APP_STORE_BADGE}
             alt="App Store"
-            className="w-32 hover:scale-105 transition"
+            className="w-26 hover:scale-105 transition mr-2"
           />
         </a>
       </div>

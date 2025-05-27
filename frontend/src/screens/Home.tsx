@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { OWNER_NAME } from '../constants/constants';
 import { useThemeStore } from '../stores/useThemeStore';
 import ScrollTo from '../components/ScrollTo';
-import Card from '../components/Home/HomeCard';
+import Card from '../components/Home/Card';
 import ProjectsSection from '../components/Home/ProjectSection';
 
 interface CardData {
@@ -48,6 +48,8 @@ const Home: React.FC = () => {
           const scrollMap: Record<string, string> = {
             projects: 'real-projects',
             guilherme_AI: 'guilherme-ai',
+            contact: "contact",
+            experieince: "experience"
           };
 
           if (scrollMap[key]) {
