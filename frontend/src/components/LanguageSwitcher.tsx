@@ -11,7 +11,7 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ colorLanguag
     <select
       value={language}
       onChange={(e) => setLanguage(e.target.value as 'pt' | 'en')}
-      className="p-1 hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer rounded
+      className="p-1 hover:bg-gray-500 dark:hover:bg-gray-700 cursor-pointer rounded
 "
     >
       <option value="pt">

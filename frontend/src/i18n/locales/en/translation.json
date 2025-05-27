@@ -8,7 +8,8 @@
   },
   "chatOpenAI": {
     "placeholder": "Type your question about me...",
-    "send": "Send"
+    "send": "Send",
+    "error": "Unable to connect to the server."
   },
   "home": {
     "greeting": "Hi, I'm {{name}} 👋",

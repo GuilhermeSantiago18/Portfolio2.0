@@ -9,7 +9,7 @@ interface IconButtonProps {
 export const IconButton: React.FC<IconButtonProps> = ({ onClick, title, icon }) => (
   <button
     onClick={onClick}
-    className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer"
+    className="p-2 rounded-full hover:bg-gray-500 dark:hover:bg-gray-700 cursor-pointer"
     title={title}
   >
     {icon}
