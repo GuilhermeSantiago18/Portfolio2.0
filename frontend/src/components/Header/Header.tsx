@@ -5,10 +5,12 @@ import { Moon, Sun } from 'lucide-react';
 import { LanguageSwitcher } from '../LanguageSwitcher';
 import { THEME_DARK } from '../../constants/theme';
 import { useTranslation } from 'react-i18next';
+import { IconButton } from '../Buttons/IconButton';
+import { ActionButton } from '../Buttons/ActionButton';
 
 export const Header = () => {
   const { t } = useTranslation();
-  const { theme, toggleTheme, setCustomTheme } = useThemeStore();
+  const { theme, toggleTheme, setCustomTheme, primaryColor } = useThemeStore();
 
   const [showPicker, setShowPicker] = useState(false);
   const [tempColor, setTempColor] = useState('#4f46e5');
@@ -20,28 +22,23 @@ export const Header = () => {
   const confirmColor = () => {
     setCustomTheme(theme, tempColor);
     setShowPicker(false);
-    toggleTheme()
+    toggleTheme();
   };
 
   return (
     <header className="flex flex-row justify-around md:flex-col md:items-end p-4 mr-2 md:mr-4 rounded-2xl relative z-50">
       <div className="flex items-center gap-2">
-        <button
+        <IconButton
           onClick={toggleTheme}
-          className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
           title={t('change_theme')}
-        >
-          {theme === THEME_DARK ? <Sun size={20} /> : <Moon size={20} />}
-        </button>
+          icon={theme === THEME_DARK ? <Sun size={20} /> : <Moon size={20} />}
+        />
 
-        <button
-          onClick={() => setShowPicker(true)}
-          className="px-3 py-1 rounded hover:bg-gray-200 dark:hover:bg-gray-700"
-        >
+        <ActionButton onClick={() => setShowPicker(true)}>
           🎨 {t('header.customize')}
-        </button>
+        </ActionButton>
 
-        <LanguageSwitcher />
+        <LanguageSwitcher colorLanguage={primaryColor} />
       </div>
 
       {showPicker && (
@@ -49,7 +46,7 @@ export const Header = () => {
           <ChromePicker color={tempColor} onChange={handleColorChange} disableAlpha />
           <button
             onClick={confirmColor}
-            className="mt-2 w-full bg-green-500 text-white py-1 rounded hover:bg-green-600"
+            className="mt-2 w-full bg-green-500 text-white py-1 rounded hover:bg-green-600 cursor-pointer"
           >
             {t('header.confirm_color')}
           </button>

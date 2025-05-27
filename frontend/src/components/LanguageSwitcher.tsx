@@ -1,16 +1,25 @@
 import { useLanguageStore } from '../stores/useLanguageStore';
 
-export const LanguageSwitcher = () => {
+interface LanguageSwitcherProps {
+  colorLanguage?: string;
+}
+
+export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ colorLanguage }) => {
   const { language, setLanguage } = useLanguageStore();
 
   return (
     <select
       value={language}
       onChange={(e) => setLanguage(e.target.value as 'pt' | 'en')}
-      className="rounded px-2 py-1  hover:bg-gray-200 dark:hover:bg-gray-700"
+      className="rounded px-2 py-1  hover:bg-gray-800 cursor-pointer
+"
     >
-      <option value="pt">🇧🇷 Português</option>
-      <option value="en">🇺🇸 English</option>
+      <option className="text-black" style={{ color: colorLanguage }} value="pt">
+        🇧🇷 Português
+      </option>
+      <option  className="text-black"style={{ color: colorLanguage }} value="en">
+        🇺🇸 English
+      </option>
     </select>
   );
 };
