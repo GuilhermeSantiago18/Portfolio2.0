@@ -11,13 +11,13 @@ export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ colorLanguag
     <select
       value={language}
       onChange={(e) => setLanguage(e.target.value as 'pt' | 'en')}
-      className="rounded px-2 py-1  hover:bg-gray-800 cursor-pointer
+      className="p-1 hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer rounded
 "
     >
-      <option className="text-black" style={{ color: colorLanguage }} value="pt">
+      <option value="pt">
         🇧🇷 Português
       </option>
-      <option  className="text-black"style={{ color: colorLanguage }} value="en">
+      <option value="en">
         🇺🇸 English
       </option>
     </select>

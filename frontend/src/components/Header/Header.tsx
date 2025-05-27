@@ -26,8 +26,8 @@ export const Header = () => {
   };
 
   return (
-    <header className="flex flex-row justify-around md:flex-col md:items-end p-4 mr-2 md:mr-4 rounded-2xl relative z-50">
-      <div className="flex items-center gap-2">
+    <header className="flex flex-row justify-around md:flex-col md:items-end p-4 md:mr-4 rounded-2xl relative z-50">
+      <div className="flex items-center gap-2 w-80 ml-2">
         <IconButton
           onClick={toggleTheme}
           title={t('change_theme')}
