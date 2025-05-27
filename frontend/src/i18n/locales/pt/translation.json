@@ -29,6 +29,16 @@
      { 
       "title": "🧠 Guilherme AI",
     "description": "Converse comigo em tempo real e tire suas dúvidas diretamente com a minha inteligência artificial personalizada."
-  }
+  },
+  "chart_pie": 
+     { 
+      "title": "5000+ Horas de Experiência",
+    "description": "Converse comigo em tempo real e tire suas dúvidas diretamente com a minha inteligência artificial personalizada."
+  },
+   "chart_line": 
+     { 
+      "title": "10+ clientes diferentes",
+    "description": "Número total de projetos únicos trabalhados"
+    }
    } 
 }

@@ -28,6 +28,15 @@
     "guilherme_AI": {
       "title": "🧠 Guilherme AI",
       "description": "Chat with me in real time and ask anything directly to my personalized AI assistant."
-    }
+    },
+    "chart_pie": 
+     { 
+      "title": "'5000+ Hours of Experience"
+  },
+   "chart_line": 
+     { 
+      "title": "10+ Unique Clients",
+      "description": "Total Number of Distinct Projects Worked On"
+  }
   }
 }
