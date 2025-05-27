@@ -15,10 +15,13 @@ Trabalhou por mais de 2 anos para uma empresa do Uruguai em projetos como:
 - **MasBien** (Saúde e bem-estar)
 
 📚 Tecnologias:
+- Tests Jest
 - React, React Native, Node.js
 - PostgreSQL, Prisma
 - AdminJS, Strapi
 - TypeScript, JavaScript
+- Ja trabalhei em projetos com Angular e Vue tambem
+- github actions CI/CD
 
 👥 Estilo de trabalho:
 - Curte ambientes colaborativos e trabalho em equipe.
