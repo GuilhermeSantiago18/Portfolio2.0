@@ -124,7 +124,7 @@ export default function ExperienceLineChart() {
   };
 
   return (
-    <div ref={ref} className="w-full md:w-[25vw] md:mt-[50px]">
+    <div ref={ref} className="w-full md:w-[18vw] md:mt-[50px]">
       <Line key={sizeKey} data={data} options={options} />
     </div>
   );

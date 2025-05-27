@@ -8,23 +8,29 @@ type TypingProps = {
 export const TypingResponse = ({ text, speed = 25 }: TypingProps) => {
   const [displayedText, setDisplayedText] = useState('');
 
- useEffect(() => {
-  let currentIndex = 0;
-  setDisplayedText('');
+  useEffect(() => {
+    let isCancelled = false;
 
-  const interval = setInterval(() => {
-    if (currentIndex < text.length) {
-      setDisplayedText((prev) => prev + text[currentIndex]);
-      currentIndex++;
-    } else {
-      clearInterval(interval);
-    }
-  }, speed);
+    const typeText = async () => {
+      setDisplayedText('');
+      for (let i = 0; i < text.length; i++) {
+        if (isCancelled) return;
+        setDisplayedText((prev) => prev + text[i]);
+        await new Promise((resolve) => setTimeout(resolve, speed));
+      }
+    };
 
-  return () => clearInterval(interval);
-}, [text, speed]);
+    if (text) typeText();
 
+    return () => {
+      isCancelled = true;
+    };
+  }, [text, speed]);
 
-
-  return <p className="whitespace-pre-line leading-relaxed">{displayedText}</p>;
+  return (
+    <p className="whitespace-pre-line leading-relaxed mt-4 w-full max-w-md text-left">
+      {displayedText}
+      <span className="animate-pulse">|</span>
+    </p>
+  );
 };

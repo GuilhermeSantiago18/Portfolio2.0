@@ -9,7 +9,7 @@
    "chatOpenAI": {
     "placeholder": "Escreva sua dúvida sobre mim...",
     "send": "Enviar",
-    "error": "Resposta vazia do servidor."
+    "error": "Não foi possível conectar ao servidor."
   },
   "home": {
     "greeting": "Olá, eu sou {{name}} 👋",

@@ -55,7 +55,7 @@ const Home: React.FC = () => {
 
           if (scrollMap[key]) {
             return (
-              <ScrollTo key={`${title}-${index}`} targetId={scrollMap[key]}>
+              <ScrollTo key={`${title}-${index}`} targetId={scrollMap[key]} scrollAlign={key === 'guilherme_AI' ? 'center' : 'start'}>
                 {cardContent}
               </ScrollTo>
             );
