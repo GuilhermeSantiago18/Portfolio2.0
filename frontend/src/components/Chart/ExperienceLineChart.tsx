@@ -1,58 +1,58 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Chart as ChartJS,
   LineElement,
-  CategoryScale,
-  LinearScale,
   PointElement,
+  LinearScale,
+  CategoryScale,
   Title,
   Tooltip,
   Legend,
-  Filler,
-  type ChartOptions,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 import { useInView } from 'react-intersection-observer';
+import { useThemeStore } from '../../stores/useThemeStore';
+import type { ChartOptions } from 'chart.js';
+import { THEME_DARK } from '../../constants/theme';
 
-ChartJS.register(
-  LineElement,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
-);
+ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Title, Tooltip, Legend);
 
-const baseData = [1500, 1000, 600, 400, 300, 200];
-const labels = [
-  'React / React Native',
-  'Node.js / Backend',
-  'UI/UX Design',
-  'Banco de Dados',
-  'DevOps / Docker / CI',
-  'Gerenciamento de Projeto',
-];
+const labels = ['2021', '2022', '2023', '2024', '2025'];
+
+const baseData = [0, 2, 7, 8, 9]; 
 
 export default function ExperienceLineChart() {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.3,
-  });
+  const { primaryColor, theme } = useThemeStore();
+  const { ref, inView } = useInView({ threshold: 0.2 });
+
+  const [sizeKey, setSizeKey] = useState(0);
+  
+    useEffect(() => {
+      const handleResize = () => {
+        setSizeKey((prev: number) => prev + 1);
+      };
+  
+      handleResize();
+      window.addEventListener('resize', handleResize);
+  
+      return () => {
+        window.removeEventListener('resize', handleResize);
+      };
+    }, []);
 
   const data = {
     labels,
     datasets: [
       {
-        label: 'Horas de Experiência',
+        label: 'Horas de Experiência por Ano',
         data: inView ? baseData : baseData.map(() => 0),
-        fill: true,
-        borderColor: '#6366F1',
-        backgroundColor: 'rgba(99, 102, 241, 0.1)',
-        tension: 0.4,
-        pointRadius: 5,
-        pointBackgroundColor: '#6366F1',
+        fill: false,
+        borderColor: primaryColor,
+        tension: 0.3,
+        pointBackgroundColor: primaryColor,
+        pointBorderColor: '#fff',
+        pointHoverBackgroundColor: '#fff',
+        pointHoverBorderColor: primaryColor,
       },
     ],
   };
@@ -60,31 +60,62 @@ export default function ExperienceLineChart() {
   const options: ChartOptions<'line'> = {
     responsive: true,
     animation: {
-      duration: 1500,
-      easing: 'easeOutQuart',
+      duration: 2000,
+      easing: 'easeInOutQuad',
     },
     plugins: {
-      legend: { display: false },
+      legend: {
+        display: true,
+        labels: {
+          color: primaryColor,
+        },
+      },
       title: {
         display: true,
-        text: '+4000 Horas de Experiência por Área',
-        font: { size: 20 },
-        color: '#4F46E5',
+        text: 'Evolução de Horas por Ano',
+        color: primaryColor,
+        font: {
+          size: 18,
+        },
       },
     },
     scales: {
-      y: {
-        beginAtZero: true,
+      x: {
         ticks: {
-          stepSize: 250,
+          color: primaryColor,
+        },
+        grid: {
+          color: '#eee',
+        },
+      },
+      y: {
+        ticks: {
+           color: theme === THEME_DARK ? '#ffffff' : primaryColor,
+        },
+        grid: {
+          color: theme === THEME_DARK ? '#ffffff' : primaryColor,
+        },
+      },
+    },
+    elements: {
+      line: {
+        borderWidth: 3,
+      },
+    },
+    datasets: {
+      line: {
+        showLine: true,
+        animation: {
+          duration: 2000,
+          easing: 'easeInOutQuad',
         },
       },
     },
   };
 
   return (
-    <div ref={ref}>
-      <Line data={data} options={options} />
+    <div ref={ref} className="w-full md:w-[25vw]">
+      <Line key={sizeKey} data={data} options={options} />
     </div>
   );
 }
