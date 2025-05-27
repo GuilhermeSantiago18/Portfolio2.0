@@ -12,7 +12,7 @@
   },
   "home": {
     "greeting": "Olá, eu sou {{name}} 👋",
-    "intro": "Sou desenvolvedor full stack com experiência internacional e foco em soluções elegantes e funcionais.",
+    "intro": "Sou desenvolvedor full stack com experiência internacional e foco em soluções funcionais.",
     "experience": {
       "title": "🚀 Experiência",
       "description": "2+ anos de experiência internacional trabalhando com alguns clientes LATAM."

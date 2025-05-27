@@ -3,8 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { OWNER_NAME } from '../constants/constants';
 import { useThemeStore } from '../stores/useThemeStore';
 import ScrollTo from '../components/ScrollTo';
-import Card from '../components/Home/Card';
+import Card from '../components/Cards/Card';
 import ProjectsSection from '../components/Home/ProjectSection';
+import ExperienceSection from '../components/Home/ChartExperienceSection';
 
 interface CardData {
   title: string;
@@ -49,7 +50,7 @@ const Home: React.FC = () => {
             projects: 'real-projects',
             guilherme_AI: 'guilherme-ai',
             contact: "contact",
-            experieince: "experience"
+            experience: "experience"
           };
 
           if (scrollMap[key]) {
@@ -66,6 +67,7 @@ const Home: React.FC = () => {
 
       {/* Seção dos projetos reais */}
       <ProjectsSection />
+      <ExperienceSection />
     </main>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import ProjectCard from './ProjectCard';
+import ProjectCard from '../Cards/ProjectCard';
 import { useTranslation } from 'react-i18next';
 
 const projects = [
