@@ -2,7 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors'
 import userRoutes from './routes/UserRoutes'
-import chatRoutes from './routes/chatOpenAI'
+import chatRoutes from './routes/ChatOpenAI'
 import errorHandler from './middlewares/ErrorHandler';
 
 dotenv.config();
