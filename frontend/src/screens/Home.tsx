@@ -6,6 +6,7 @@ import ScrollTo from '../components/ScrollTo';
 import Card from '../components/Cards/Card';
 import ProjectsSection from '../components/Home/ProjectSection';
 import ExperienceSection from '../components/Home/ChartExperienceSection';
+import Footer from '../components/Footer/Footer';
 
 interface CardData {
   title: string;
@@ -64,8 +65,6 @@ const Home: React.FC = () => {
           return cardContent;
         })}
       </section>
-
-      {/* Seção dos projetos reais */}
       <ProjectsSection />
       <ExperienceSection />
     </main>

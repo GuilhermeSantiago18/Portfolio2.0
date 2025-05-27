@@ -30,7 +30,7 @@ const ChatInput = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full px-4 min-h-screen">
+    <div className="flex flex-col items-center w-full px-4 min-h-[50vh]">
       <div className="flex w-full max-w-2xl justify-end gap-2">
         <input
          id='guilherme-ai'

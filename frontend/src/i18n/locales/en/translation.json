@@ -39,5 +39,8 @@
       "title": "10+ Unique Clients",
       "description": "Total Number of Distinct Projects Worked On"
   }
-  }
+  },
+    "footer": {
+    "title": "© 2025 Guilherme. All rights reserved."
+   }
 }

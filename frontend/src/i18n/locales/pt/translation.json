@@ -41,5 +41,8 @@
       "title": "10+ clientes diferentes",
     "description": "Número total de projetos únicos trabalhados"
     }
-   } 
+   },
+   "footer": {
+    "title": "© 2025 Guilherme. Todos os direitos reservados."
+   }
 }
