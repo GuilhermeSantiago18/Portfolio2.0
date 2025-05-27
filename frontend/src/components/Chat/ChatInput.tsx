@@ -19,7 +19,7 @@ const ChatInput = () => {
 
     setLoading(true);
     try {
-      const res = await axios.post(`${api}/chat`, { message });
+      const res = await axios.post(`${api}/api/chat`, { message });
       setResponse(res.data.response);
       setMessage('');
     } catch (err) {
