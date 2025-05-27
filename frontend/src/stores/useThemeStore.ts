@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { PRIMARY_COLOR, THEME_DARK, THEME_LIGHT } from '../constants/theme';
 
 interface ThemeState {
   theme: 'light' | 'dark';
@@ -9,10 +10,10 @@ interface ThemeState {
 }
 
 export const useThemeStore = create<ThemeState>((set, get) => ({
-  theme: 'light',
-  primaryColor: '#000000',
+  theme: THEME_LIGHT,
+  primaryColor: PRIMARY_COLOR,
   toggleTheme: () => {
-    const newTheme = get().theme === 'light' ? 'dark' : 'light';
+    const newTheme = get().theme === THEME_LIGHT ? THEME_DARK : THEME_LIGHT;
     set({ theme: newTheme });
   },
   setPrimaryColor: (color) => {
