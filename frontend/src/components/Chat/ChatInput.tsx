@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
 import { useThemeStore } from '../../stores/useThemeStore';
-import { themeFactory } from '../../utils/themeFactory';
 import { TypingResponse } from './typingResponse';
 import { useTranslation } from 'react-i18next';
 

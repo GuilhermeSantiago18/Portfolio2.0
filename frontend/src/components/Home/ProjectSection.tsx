@@ -1,7 +1,8 @@
 import React from 'react';
 import ProjectCard from '../Cards/ProjectCard';
-import { useTranslation } from 'react-i18next';
 
+
+//THE BACKEND WILL BRING THIS INFOS
 const projects = [
   {
     name: 'Jazmin Chebar',

@@ -14,18 +14,23 @@ import { useInView } from 'react-intersection-observer';
 import { useThemeStore } from '../../stores/useThemeStore';
 import type { ChartOptions } from 'chart.js';
 import { THEME_DARK } from '../../constants/theme';
+import { useTranslation } from 'react-i18next';
 
 ChartJS.register(LineElement, PointElement, LinearScale, CategoryScale, Title, Tooltip, Legend);
 
 const labels = ['2021', '2022', '2023', '2024', '2025'];
 
-const baseData = [0, 2, 7, 8, 9]; 
+const baseData = [0, 2, 7, 8, 10]; 
 
 export default function ExperienceLineChart() {
+
+
+
+    const { t } = useTranslation();
   const { primaryColor, theme } = useThemeStore();
   const { ref, inView } = useInView({ threshold: 0.2 });
-
   const [sizeKey, setSizeKey] = useState(0);
+    const gridColor = theme === THEME_DARK ? '#ffffff' : primaryColor;
   
     useEffect(() => {
       const handleResize = () => {
@@ -44,41 +49,46 @@ export default function ExperienceLineChart() {
     labels,
     datasets: [
       {
-        label: 'Horas de Experiência por Ano',
+        label: t('home.chart_line.description'),
         data: inView ? baseData : baseData.map(() => 0),
         fill: false,
-        borderColor: primaryColor,
+        borderColor:gridColor,
         tension: 0.3,
-        pointBackgroundColor: primaryColor,
-        pointBorderColor: '#fff',
-        pointHoverBackgroundColor: '#fff',
-        pointHoverBorderColor: primaryColor,
+        pointBackgroundColor: gridColor,
+        pointBorderColor: gridColor,
+        pointHoverBackgroundColor:gridColor,
+        pointHoverBorderColor: gridColor,
       },
     ],
   };
 
-  const options: ChartOptions<'line'> = {
-    responsive: true,
-    animation: {
-      duration: 2000,
-      easing: 'easeInOutQuad',
+ const options: ChartOptions<'line'> = {
+  responsive: true,
+  animation: {
+    duration: 2000,
+    easing: 'easeInOutQuad',
+  },
+  layout: {
+    padding: {
+      top: 0, 
     },
-    plugins: {
-      legend: {
-        display: true,
-        labels: {
-          color: primaryColor,
-        },
-      },
-      title: {
-        display: true,
-        text: 'Evolução de Horas por Ano',
-        color: primaryColor,
-        font: {
-          size: 18,
-        },
+  },
+  plugins: {
+    legend: {
+      display: true,
+      labels: {
+        color: gridColor,
       },
     },
+    title: {
+      display: true,
+      text: t('home.chart_line.title'),
+      color:gridColor,
+      font: {
+        size: 18,
+      },
+    },
+  },
     scales: {
       x: {
         ticks: {
@@ -90,10 +100,10 @@ export default function ExperienceLineChart() {
       },
       y: {
         ticks: {
-           color: theme === THEME_DARK ? '#ffffff' : primaryColor,
+           color: gridColor,
         },
         grid: {
-          color: theme === THEME_DARK ? '#ffffff' : primaryColor,
+          color: gridColor,
         },
       },
     },
@@ -114,7 +124,7 @@ export default function ExperienceLineChart() {
   };
 
   return (
-    <div ref={ref} className="w-full md:w-[25vw]">
+    <div ref={ref} className="w-full md:w-[25vw] md:mt-[50px]">
       <Line key={sizeKey} data={data} options={options} />
     </div>
   );
