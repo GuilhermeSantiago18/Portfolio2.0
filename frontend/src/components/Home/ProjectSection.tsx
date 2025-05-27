@@ -6,19 +6,19 @@ import ProjectCard from '../Cards/ProjectCard';
 const projects = [
   {
     name: 'Jazmin Chebar',
-    image: '/public/JazminChebar.png',
+    image: '/assets/JazminChebar.png',
     playstore: 'https://play.google.com/store/apps/details?id=ar.com.jazminchebar.app&hl=pt_BR&pli=1',
     appstore: 'https://apps.apple.com/br/app/jazmin-chebar/id6444320645',
   },
   {
     name: 'Bembos',
-    image: '/public/Bembos.png',
+    image: '/assets/Bembos.png',
     playstore: 'https://play.google.com/store/apps/details?id=com.osp.projects.bembos&hl=pt_BR',
     appstore: 'https://apps.apple.com/pe/app/bembos/id952866349',
   },
   {
     name: 'MasBien',
-    image: '/public/MasBien.png',
+    image: '/assets/MasBien.png',
     playstore: 'https://play.google.com/store/apps/details?id=com.masbienv2.app',
     appstore: 'https://play.google.com/store/apps/details?id=com.masbienv2.app',
   },
