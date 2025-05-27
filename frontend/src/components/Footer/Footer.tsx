@@ -1,4 +1,3 @@
-import React from 'react';
 import { Linkedin, Github, MessageCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 

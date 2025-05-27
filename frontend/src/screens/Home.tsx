@@ -6,7 +6,6 @@ import ScrollTo from '../components/ScrollTo';
 import Card from '../components/Cards/Card';
 import ProjectsSection from '../components/Home/ProjectSection';
 import ExperienceSection from '../components/Home/ChartExperienceSection';
-import Footer from '../components/Footer/Footer';
 
 interface CardData {
   title: string;

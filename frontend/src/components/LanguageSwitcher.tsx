@@ -4,7 +4,7 @@ interface LanguageSwitcherProps {
   colorLanguage?: string;
 }
 
-export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = ({ colorLanguage }) => {
+export const LanguageSwitcher: React.FC<LanguageSwitcherProps> = () => {
   const { language, setLanguage } = useLanguageStore();
 
   return (
