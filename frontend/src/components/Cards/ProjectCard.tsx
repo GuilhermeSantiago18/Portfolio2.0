@@ -1,6 +1,5 @@
 import React from 'react';
 import { APP_STORE_BADGE, GOOGLE_PLAY_BADGE } from '../../constants/constants';
-import { IconButton } from '../Buttons/IconButton';
 import StoreBadge from '../Badges/StoreBadge';
 import { ActionButton } from '../Buttons/ActionButton';
 
