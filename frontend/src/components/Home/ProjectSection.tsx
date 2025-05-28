@@ -25,8 +25,7 @@ const projects = [
    {
     name: 'Urupago',
     image: '/assets/Urupago.png',
-    playstore: 'https://play.google.com/store/apps/details?id=com.masbienv2.app',
-    appstore: 'https://play.google.com/store/apps/details?id=com.masbienv2.app',
+    website: 'https://urupago.com.uy/'
   },
 ];
 
