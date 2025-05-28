@@ -22,6 +22,12 @@ const projects = [
     playstore: 'https://play.google.com/store/apps/details?id=com.masbienv2.app',
     appstore: 'https://play.google.com/store/apps/details?id=com.masbienv2.app',
   },
+   {
+    name: 'Urupago',
+    image: '/assets/Urupago.png',
+    playstore: 'https://play.google.com/store/apps/details?id=com.masbienv2.app',
+    appstore: 'https://play.google.com/store/apps/details?id=com.masbienv2.app',
+  },
 ];
 
 const ProjectsSection: React.FC = () => {
@@ -29,7 +35,7 @@ const ProjectsSection: React.FC = () => {
 
   return (
     <section id="real-projects" className="mt-20">
-      <div className="w-full max-w-4xl grid gap-6 grid mt-6 md:grid-cols-3 gap-4">
+      <div className="w-full max-w-4xl grid gap-6 grid mt-6 md:grid-cols-4 gap-4">
         {projects.map((project) => (
           <ProjectCard key={project.name} {...project} />
         ))}
