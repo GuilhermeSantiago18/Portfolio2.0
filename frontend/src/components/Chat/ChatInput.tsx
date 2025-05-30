@@ -24,7 +24,9 @@ const ChatInput = () => {
       setResponse(res.data.response);
       setMessage('');
     } catch (err) {
-      setResponse(t('chatOpenAI.error'));  
+      if (err) {
+        setResponse(t('chatOpenAI.error')); 
+      }
     } finally {
       setLoading(false);
     }
