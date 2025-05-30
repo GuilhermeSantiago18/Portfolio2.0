@@ -14,6 +14,7 @@ export const IconButton: React.FC<IconButtonProps> = ({ onClick, title, icon, hr
   if (href) {
     return (
       <a
+        data-testid='href-icon'
         href={href}
         target="_blank"
         rel="noopener noreferrer"
@@ -26,7 +27,7 @@ export const IconButton: React.FC<IconButtonProps> = ({ onClick, title, icon, hr
   }
 
   return (
-    <button onClick={onClick} title={title} className={className}>
+    <button data-testid='icon-button' onClick={onClick} title={title} className={className}>
       {icon}
     </button>
   );
