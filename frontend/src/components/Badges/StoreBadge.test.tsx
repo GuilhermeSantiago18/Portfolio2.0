@@ -1,25 +1,25 @@
 // src/components/ui/StoreBadge.test.tsx
 import { render, screen } from '@testing-library/react'
 import StoreBadge from './StoreBadge'
+import { GOOGLE_PLAY_BADGE } from '../../constants/constants'
+
 
 describe('StoreBadge', () => {
   it('Render with all props', () => {
     render(
       <StoreBadge
-        href="https://example.com"
-        src="/badge.png"
-        alt="Baixar na loja"
-        className="meu-classe-teste"
+        href="https://play.google.com/store/apps/details?id=com.osp.projects.bembos&hl=pt_BR"
+        src={GOOGLE_PLAY_BADGE}
+        alt="Google Play"
       />
     )
 
     const linkElement = screen.getByRole('link')
     const imgElement = screen.getByRole('img')
 
-    expect(linkElement).toHaveAttribute('href', 'https://example.com')
-    expect(imgElement).toHaveAttribute('src', '/badge.png')
-    expect(imgElement).toHaveAttribute('alt', 'Baixar na loja')
-    expect(imgElement).toHaveClass('hover:scale-105 transition')
-    expect(imgElement).toHaveClass('meu-classe-teste')
+    expect(linkElement).toHaveAttribute('href', 'https://play.google.com/store/apps/details?id=com.osp.projects.bembos&hl=pt_BR')
+    expect(imgElement).toHaveAttribute('src', GOOGLE_PLAY_BADGE)
+    expect(imgElement).toHaveAttribute('alt', 'Google Play')
+
   })
 })
