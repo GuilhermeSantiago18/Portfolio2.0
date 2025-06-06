@@ -36,7 +36,9 @@ const ProjectsSection: React.FC = () => {
     <section id="real-projects" className="mt-20">
       <div className="w-full max-w-4xl grid gap-6 grid mt-6 md:grid-cols-4 gap-4">
         {projects.map((project) => (
+          <a href={project.appstore ? project.appstore : project.playstore ? project.playstore : project.website} target="_blank">
           <ProjectCard key={project.name} {...project} />
+          </a>
         ))}
       </div>
     </section>
