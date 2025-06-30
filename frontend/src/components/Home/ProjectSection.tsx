@@ -28,7 +28,7 @@ const projects = [
     website: 'https://urupago.com.uy/'
   },
     {
-    name: 'Booking',
+    name: 'Goold-Booking',
     image: '/assets/Booking.png',
     website: 'https://goold-booking.up.railway.app'
   },

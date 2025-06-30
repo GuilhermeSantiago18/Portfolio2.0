@@ -21,7 +21,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   website
 }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-4 flex flex-col items-center border border-gray-200 dark:border-gray-700 transition hover:scale-105 cursor-pointer">
+    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-4 flex flex-col justify-between border border-gray-200 dark:border-gray-700 transition hover:scale-105 cursor-pointer md:h-[360px]">
       <h4 className="font-semibold text-xl text-center mb-4 text-black dark:text-white">{name}</h4>
 
       <img
