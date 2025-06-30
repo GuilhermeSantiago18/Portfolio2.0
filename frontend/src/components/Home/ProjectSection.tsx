@@ -27,6 +27,11 @@ const projects = [
     image: '/assets/Urupago.png',
     website: 'https://urupago.com.uy/'
   },
+    {
+    name: 'Goold-Booking',
+    image: '/assets/Booking.png',
+    website: 'https://goold-booking.up.railway.app'
+  },
 ];
 
 const ProjectsSection: React.FC = () => {
