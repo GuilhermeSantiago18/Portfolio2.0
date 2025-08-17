@@ -17,7 +17,7 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
   loading = false,
   href,
   title,
-  className = 'px-3 py-1 rounded hover:bg-gray-500 dark:hover:bg-gray-700 cursor-pointer',
+  className = 'px-3 py-1 rounded hover cursor-pointer hover:scale-105 transition w-28',
   icon,
 }) => {
   if (href) {
@@ -27,9 +27,9 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
         target="_blank"
         rel="noopener noreferrer"
         title={title}
-        className="w-34 md:w-20 rounded-xl cursor-pointer hover:scale-105 transition mb-2"
+        className={className || "w-34 md:w-20 rounded-xl cursor-pointer hover:scale-105 transition mb-2"}
       >
-        <img src='/assets/web.svg' width={200} height={500}></img>{icon || children}
+        <img src='/assets/web.svg' width={120} height={600}></img>{icon || children}
       </a>
     );
   }
