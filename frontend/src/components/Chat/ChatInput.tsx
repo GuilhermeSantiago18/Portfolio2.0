@@ -40,11 +40,11 @@ const ChatInput = () => {
   }, [history, loading]);
 
   return (
-    <div className="flex flex-col items-center w-full px-4 min-h-[60vh]">
+    <div className="flex flex-col items-center w-full px-10 min-h-[60vh]">
       <div className="w-full max-w-3xl rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-lg overflow-hidden">
-        <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between bg-black dark:bg-gray-950">
-          <div className="text-sm font-semibold">Guilherme AI</div>
-          <div className="text-xs opacity-70">{t('chat_title')}</div>
+        <div className="px-4 py-3 border-b border-gray-200 dark:border-gray-800 flex items-center justify-between bg-black">
+          <div className="text-sm font-semibold text-white">Guilherme AI</div>
+          <div className="text-xs opacity-70 text-white">{t('chat_title')}</div>
         </div>
         <div ref={listRef} className="h-[38vh] overflow-y-auto p-4 space-y-3 bg-white dark:bg-gray-900">
           {history.length === 0 && (
@@ -74,18 +74,18 @@ const ChatInput = () => {
           )}
         </div>
         <div className="flex items-center gap-2 p-3 border-t border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950">
-          <input
-          id='guilherme-ai'
-          type="text"
-          className="px-4 w-full h-11 rounded-full border bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 border-gray-300 dark:border-gray-700 caret-gray-900 dark:caret-gray-100 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder={t('chatOpenAI.placeholder')}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter' && !loading) handleSend();
-          }}
-          disabled={loading}
-        />
+        <input
+  id="guilherme-ai"
+  type="text"
+  className="px-4 w-full h-10 rounded-full border bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 border-gray-300 dark:border-gray-700 caret-gray-900 dark:caret-gray-100 focus:outline-none focus:ring-2 focus:ring-white transition-all duration-200 text-sm" // <--- aqui
+  value={message}
+  onChange={(e) => setMessage(e.target.value)}
+  placeholder={t('chatOpenAI.placeholder')}
+  onKeyDown={(e) => {
+    if (e.key === 'Enter' && !loading) handleSend();
+  }}
+  disabled={loading}
+/>
         <ActionButton onClick={handleSend} loading={loading} title={t('chatOpenAI.send')} className="px-4 py-2 rounded-full bg-gray-900 text-white dark:bg-white dark:text-gray-900 hover:opacity-90">
           {!loading && t('chatOpenAI.send')}
         </ActionButton>

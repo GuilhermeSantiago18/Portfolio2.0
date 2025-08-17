@@ -23,13 +23,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   tags = []
 }) => {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-3 sm:p-4 flex flex-col justify-between border border-gray-200 dark:border-gray-700 transition hover:shadow-xl cursor-pointer md:h-[360px]">
+    <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-3 sm:p-4 flex flex-col justify-between border border-gray-200 dark:border-gray-700 transition hover:shadow-xl cursor-pointer md:h-[360px]">
       <h4 className="font-semibold text-base sm:text-lg text-center mb-2 sm:mb-3 text-black dark:text-white">{name}</h4>
 
       <img
         src={image}
         alt={name}
-        className="min-h-40 sm:max-h-52 object-contain rounded-xl mb-2 sm:mb-3 bg-white p-1 sm:p-2"
+        className="w-full max-h-40 sm:max-h-52 object-contain rounded-xl mb-2 sm:mb-3 bg-white p-1 sm:p-2"
       />
 
       {tags.length > 0 && (
