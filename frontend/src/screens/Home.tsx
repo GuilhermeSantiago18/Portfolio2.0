@@ -32,7 +32,7 @@ const Home: React.FC = () => {
         <p className="text-lg">{t('home.intro')}</p>
       </section>
 
-      <section className="w-full max-w-4xl grid md:grid-cols-2 gap-6 mt-12">
+      <section className="w-full max-w-4xl grid md:grid-cols-2 gap-6">
         {cardsData.map(({ title, description }, index) => {
           const key = cardKeys[index];
 
