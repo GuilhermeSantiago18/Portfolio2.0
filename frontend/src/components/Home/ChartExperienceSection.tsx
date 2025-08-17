@@ -23,7 +23,6 @@ function ExperienceSection() {
     'MongoDB',
     'Prisma',
     'Docker',
-    'AWS',
     'CI/CD'
   ];
 

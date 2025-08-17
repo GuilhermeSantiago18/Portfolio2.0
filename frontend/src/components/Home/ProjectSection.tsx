@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import ProjectCard from '../Cards/ProjectCard';
 
 
@@ -23,7 +23,7 @@ const projects = [
     image: '/assets/MasBien.png',
     playstore: 'https://play.google.com/store/apps/details?id=com.masbienv2.app',
     appstore: 'https://play.google.com/store/apps/details?id=com.masbienv2.app',
-    tags: ['React Native', 'Real Estate']
+    tags: ['React Native', 'Healthy lifestyle']
   },
    {
     name: 'Urupago',
@@ -42,38 +42,81 @@ const projects = [
 const ProjectsSection: React.FC = () => {
 //   const { t } = useTranslation();
 
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const cycleRef = useRef<HTMLDivElement | null>(null);
+  const [cycleWidth, setCycleWidth] = useState(0);
+
+  useEffect(() => {
+    const measure = () => {
+      if (!cycleRef.current) return;
+      const width = cycleRef.current.scrollWidth;
+      setCycleWidth(width);
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    if (cycleRef.current) ro.observe(cycleRef.current);
+    window.addEventListener('resize', measure);
+    return () => {
+      ro.disconnect();
+      window.removeEventListener('resize', measure);
+    };
+  }, []);
+
+  const speedPxPerSec = 80; // const speed; larger -> faster
+  const durationSec = cycleWidth > 0 ? cycleWidth / speedPxPerSec : 20;
+
   return (
-    <section id="real-projects" className="mt-20">
+    <section id="real-projects" className="mt-20 overflow-x-hidden touch-pan-y overscroll-x-none">
       <div className="w-full max-w-5xl mx-auto overflow-hidden">
         <style>
           {`
-            @keyframes marqueeScroll {
+            @keyframes marqueeScrollMeasured {
               from { transform: translateX(0); }
-              to { transform: translateX(-50%); }
+              to { transform: translateX(calc(-1 * var(--cycle, 0px))); }
             }
           `}
         </style>
         <div
-          className="flex gap-6"
+          ref={trackRef}
+          className="flex gap-0 sm:gap-4 md:gap-6 will-change-transform"
           style={{
-            width: '200%',
-            animation: 'marqueeScroll 40s linear infinite'
+            ['--cycle' as any]: `${cycleWidth}px`,
+            animation: cycleWidth ? `marqueeScrollMeasured ${durationSec}s linear infinite` : undefined,
           }}
         >
-          {[...projects, ...projects].map((project, idx) => {
-            const href = project.appstore ? project.appstore : project.playstore ? project.playstore : project.website;
-            const hasWebsite = Boolean(project.website);
-            const content = <ProjectCard {...project} />;
-            return (
-              <div key={`${project.name}-${idx}`} className="min-w-[280px] sm:min-w-[300px] md:min-w-[320px]">
-                {hasWebsite ? (
-                  content
-                ) : (
-                  <a href={href} target="_blank" rel="noopener noreferrer">{content}</a>
-                )}
-              </div>
-            );
-          })}
+          <div ref={cycleRef} className="flex gap-0 sm:gap-4 md:gap-6">
+            {projects.map((project) => {
+              const href = project.appstore ? project.appstore : project.playstore ? project.playstore : project.website;
+              const hasWebsite = Boolean(project.website);
+              const content = <ProjectCard {...project} />;
+              return (
+                <div key={`${project.name}-a`} className="min-w-full sm:min-w-[60%] md:min-w-[33%] xl:min-w-[320px]">
+                  <div className="mx-2 sm:mx-0">
+                    {hasWebsite ? content : (
+                      <a href={href} target="_blank" rel="noopener noreferrer">{content}</a>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="flex gap-0 sm:gap-4 md:gap-6" aria-hidden="true">
+            {projects.map((project) => {
+              const href = project.appstore ? project.appstore : project.playstore ? project.playstore : project.website;
+              const hasWebsite = Boolean(project.website);
+              const content = <ProjectCard {...project} />;
+              return (
+                <div key={`${project.name}-b`} className="min-w-full sm:min-w-[60%] md:min-w-[33%] xl:min-w-[320px]">
+                  <div className="mx-2 sm:mx-0">
+                    {hasWebsite ? content : (
+                      <a href={href} target="_blank" rel="noopener noreferrer">{content}</a>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
