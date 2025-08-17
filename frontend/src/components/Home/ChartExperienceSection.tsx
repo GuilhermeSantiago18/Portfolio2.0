@@ -9,9 +9,11 @@ function ExperienceSection() {
   const skillsWorked: string[] = [
     'React',
     'React Native',
+    'Node.js',
+    'Next.js',
+    'Angular', 
     'TypeScript',
     'JavaScript',
-    'Node.js',
     'Express',
     'NestJS',
     'React Query',
@@ -28,7 +30,7 @@ function ExperienceSection() {
 
   return (
     <section id="experience" className="py-20">
-      <div className="w-full max-w-5xl mx-auto">
+      <div className="w-full max-w-4xl mx-auto">
         <div>
           <h3 className="text-2xl font-bold mb-6">{t('home.skills.title')}</h3>
           <div className="flex flex-wrap gap-3">

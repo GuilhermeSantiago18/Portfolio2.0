@@ -4,6 +4,7 @@ import React from "react"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import ProjectCard from "../Cards/ProjectCard"
+import { useTranslation } from "react-i18next"
 
 //THE BACKEND WILL BRING THIS INFOS
 const projects = [
@@ -28,23 +29,24 @@ const projects = [
     image: "/assets/MasBien.png",
     playstore: "https://play.google.com/store/apps/details?id=com.masbienv2.app",
     appstore: "https://play.google.com/store/apps/details?id=com.masbienv2.app",
-    tags: ["React Native", "Healthy lifestyle"],
+    tags: ["React Native", "Nodejs", "Healthy"],
   },
   {
     name: "Urupago",
     image: "/assets/Urupago.png",
     website: "https://urupago.com.uy/",
-    tags: ["Web", "Fintech"],
+    tags: ["Angular", "Fintech"],
   },
   {
     name: "Goold-Booking",
     image: "/assets/Booking.png",
     website: "https://goold-booking.up.railway.app",
-    tags: ["Web", "Node.js", "React"],
+    tags: ["Next", "Node.js"],
   },
 ]
 
 const ProjectsSection: React.FC = () => {
+  const { t } = useTranslation()
   const [sliderRef] = useKeenSlider<HTMLDivElement>(
     {
       loop: true,
@@ -107,26 +109,19 @@ const ProjectsSection: React.FC = () => {
   )
 
   return (
-    <section id="real-projects" className="mt-20 w-[100%] md:w-4xl ">
+    <section id="real-projects" className="mt-10 w-[100%] md:w-4xl ">
+      <div className="max-w-5xl mx-auto mb-6">
+        <h3 className="text-2xl font-bold text-start">
+          {t("home.projects.carousel_title")}
+        </h3>
+      </div>
       <div ref={sliderRef} className="keen-slider">
         {projects.map((project, idx) => {
-          const href = project.appstore
-            ? project.appstore
-            : project.playstore
-            ? project.playstore
-            : project.website
-          const hasWebsite = Boolean(project.website)
           const content = <ProjectCard {...project} />
 
           return (
             <div key={idx} className="keen-slider__slide">
-              {hasWebsite ? (
-                content
-              ) : (
-                <a href={href} target="_blank" rel="noopener noreferrer">
-                  {content}
-                </a>
-              )}
+              {content}
             </div>
           )
         })}

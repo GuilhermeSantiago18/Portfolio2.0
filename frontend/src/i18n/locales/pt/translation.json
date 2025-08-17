@@ -37,7 +37,8 @@
     },
     "projects": {
       "title": "💻 Projetos Reais",
-      "description": "Confira alguns dos meus trabalhos utilizando  React Native, Node.js, React, Angular e outras tecnologias modernas."
+      "description": "Confira alguns dos meus trabalhos utilizando  React Native, Node.js, React, Angular e outras tecnologias modernas.",
+      "carousel_title": "Aplicações reais"
     },
      "contact": {
       "title": "📬 Contato",

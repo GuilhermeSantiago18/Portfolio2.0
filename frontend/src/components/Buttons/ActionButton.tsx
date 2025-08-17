@@ -27,9 +27,9 @@ export const ActionButton: React.FC<ActionButtonProps> = ({
         target="_blank"
         rel="noopener noreferrer"
         title={title}
-        className={className || "w-34 md:w-20 rounded-xl cursor-pointer hover:scale-105 transition mb-2"}
+        className={className || "rounded-xl cursor-pointer hover:scale-105 transition mb-2 inline-flex items-center justify-center"}
       >
-        <img src='/assets/web.svg' width={120} height={600}></img>{icon || children}
+        <img src='/assets/web.svg' width={120} height={600} />{icon || children}
       </a>
     );
   }

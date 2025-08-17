@@ -23,7 +23,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
   tags = []
 }) => {
   return (
-    <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-3 sm:p-4 flex flex-col justify-between border border-gray-200 dark:border-gray-700 transition hover:shadow-xl cursor-pointer md:h-[360px]">
+    <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-3 sm:p-4 flex flex-col justify-between border border-gray-200 dark:border-gray-700 transition hover:shadow-xl min-h-[400px]">
       <h4 className="font-semibold text-base sm:text-lg text-center mb-2 sm:mb-3 text-black dark:text-white">{name}</h4>
 
       <img
@@ -45,7 +45,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className="flex gap-4 justify-center items-center">
         {website ? (
           <ActionButton
-            href={website}        />
+            href={website}
+            className="rounded-xl hover:scale-105 transition mb-2 inline-flex items-center justify-center"
+          />
         ) : (
           <>
             {playstore && (
