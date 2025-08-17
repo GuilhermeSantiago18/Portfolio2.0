@@ -16,7 +16,24 @@
     "intro": "Sou desenvolvedor full stack com experiência internacional e foco em soluções funcionais.",
     "experience": {
       "title": "🚀 Experiência",
-      "description": "2+ anos de experiência internacional trabalhando com alguns clientes LATAM."
+      "description": "3+ anos de experiência internacional trabalhando com alguns clientes LATAM."
+    },
+    "highlights": {
+      "title": "Destaques",
+      "years": "+ anos de experiência",
+      "clients": "+ clientes",
+      "apps": "+ apps publicados",
+      "projects": "+ projetos"
+    },
+    "skills": {
+      "title": "Habilidades",
+      "items": {
+        "react": "React / React Native",
+        "node": "Node.js",
+        "uiux": "UI/UX",
+        "databases": "Bancos de Dados",
+        "devops": "DevOps"
+      }
     },
     "projects": {
       "title": "💻 Projetos Reais",

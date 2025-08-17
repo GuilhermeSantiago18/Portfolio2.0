@@ -16,7 +16,24 @@
     "intro": "I'm a full stack developer with international experience, focused on building functional solutions.",
     "experience": {
       "title": "🚀 Experience",
-      "description": "2+ years of international experience working with various LATAM clients."
+      "description": "3+ years of international experience working with various LATAM clients."
+    },
+    "highlights": {
+      "title": "Highlights",
+      "years": "+ years of experience",
+      "clients": "+ clients",
+      "apps": "+ published apps",
+      "projects": "+ projects"
+    },
+    "skills": {
+      "title": "Skills",
+      "items": {
+        "react": "React / React Native",
+        "node": "Node.js",
+        "uiux": "UI/UX",
+        "databases": "Databases",
+        "devops": "DevOps"
+      }
     },
     "projects": {
       "title": "💻 Real Projects",
@@ -30,15 +47,8 @@
       "title": "🧠 Guilherme AI",
       "description": "Chat with me in real time and ask anything directly to my personalized AI assistant."
     },
-    "chart_pie": 
-     { 
-      "title": "5000+ Hours of Experience"
-  },
-   "chart_line": 
-     { 
-      "title": "10+ Unique Clients",
-      "description": "Total Number of Distinct Projects Worked On"
-  }
+    "chart_pie": { "title": "" },
+    "chart_line": { "title": "", "description": "" }
   },
     "footer": {
     "title": "© 2025 Guilherme. All rights reserved."
