@@ -25,7 +25,7 @@ const Home: React.FC = () => {
 
   return (
     <main className="min-h-screen p-11 md:p-40 flex flex-col justify-start items-center gap-8">
-      <section className="text-center max-w-3xl h-48">
+      <section className="text-center max-w-3xl h-58">
         <h2 className="text-4xl font-bold mb-4">
           {t('home.greeting', { name: OWNER_NAME })}
         </h2>
