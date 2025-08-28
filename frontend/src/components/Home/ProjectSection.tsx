@@ -45,9 +45,14 @@ const projects = [
   },
 ]
 
+interface ExtendedSlider {
+  pauseAnimation: () => void
+  resumeAnimation: () => void
+}
+
 const ProjectsSection: React.FC = () => {
   const { t } = useTranslation()
-  const sliderInstanceRef = useRef<any>(null)
+  const sliderInstanceRef = useRef<ExtendedSlider | null>(null)
   
   const [sliderRef] = useKeenSlider<HTMLDivElement>(
     {
@@ -103,7 +108,10 @@ const ProjectsSection: React.FC = () => {
         slider.on("created", () => {
           window.addEventListener("resize", handleResize)
           raf = requestAnimationFrame(step)
-          sliderInstanceRef.current = slider
+          sliderInstanceRef.current = {
+            pauseAnimation,
+            resumeAnimation
+          }
         })
         slider.on("destroyed", () => {
           if (raf) cancelAnimationFrame(raf)
@@ -119,23 +127,19 @@ const ProjectsSection: React.FC = () => {
           lastTime = 0
           raf = requestAnimationFrame(step)
         })
-
-        // Adiciona os métodos de pause/resume ao slider
-        ;(slider as any).pauseAnimation = pauseAnimation
-        ;(slider as any).resumeAnimation = resumeAnimation
       },
     ]
   )
 
   const handleMouseEnter = () => {
-    if (sliderInstanceRef.current && (sliderInstanceRef.current as any).pauseAnimation) {
-      ;(sliderInstanceRef.current as any).pauseAnimation()
+    if (sliderInstanceRef.current) {
+      sliderInstanceRef.current.pauseAnimation()
     }
   }
 
   const handleMouseLeave = () => {
-    if (sliderInstanceRef.current && (sliderInstanceRef.current as any).resumeAnimation) {
-      ;(sliderInstanceRef.current as any).resumeAnimation()
+    if (sliderInstanceRef.current) {
+      sliderInstanceRef.current.resumeAnimation()
     }
   }
 
