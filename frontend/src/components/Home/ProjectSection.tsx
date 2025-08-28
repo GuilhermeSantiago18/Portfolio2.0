@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useRef } from "react"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 import ProjectCard from "../Cards/ProjectCard"
@@ -47,6 +47,8 @@ const projects = [
 
 const ProjectsSection: React.FC = () => {
   const { t } = useTranslation()
+  const sliderInstanceRef = useRef<any>(null)
+  
   const [sliderRef] = useKeenSlider<HTMLDivElement>(
     {
       loop: true,
@@ -66,6 +68,7 @@ const ProjectsSection: React.FC = () => {
       (slider) => {
         let raf = 0
         let lastTime = 0
+        let isPaused = false
         const computeSpeed = () => (window.innerWidth < 640 ? 0.0003 : 0.00008)
         let speed = computeSpeed()
 
@@ -74,11 +77,13 @@ const ProjectsSection: React.FC = () => {
           const dt = time - lastTime
           lastTime = time
 
-          const track = slider.track
-          const max = track.details.max
-          let pos = track.details.position + dt * speed
-          if (pos >= max) pos -= max
-          track.to(pos)
+          if (!isPaused) {
+            const track = slider.track
+            const max = track.details.max
+            let pos = track.details.position + dt * speed
+            if (pos >= max) pos -= max
+            track.to(pos)
+          }
 
           raf = requestAnimationFrame(step)
         }
@@ -87,15 +92,25 @@ const ProjectsSection: React.FC = () => {
           speed = computeSpeed()
         }
 
+        const pauseAnimation = () => {
+          isPaused = true
+        }
+
+        const resumeAnimation = () => {
+          isPaused = false
+        }
+
         slider.on("created", () => {
           window.addEventListener("resize", handleResize)
           raf = requestAnimationFrame(step)
+          sliderInstanceRef.current = slider
         })
         slider.on("destroyed", () => {
           if (raf) cancelAnimationFrame(raf)
           raf = 0
           lastTime = 0
           window.removeEventListener("resize", handleResize)
+          sliderInstanceRef.current = null
         })
         slider.on("updated", () => {
           // reinicia o loop para refletir novos tamanhos
@@ -104,9 +119,25 @@ const ProjectsSection: React.FC = () => {
           lastTime = 0
           raf = requestAnimationFrame(step)
         })
+
+        // Adiciona os métodos de pause/resume ao slider
+        ;(slider as any).pauseAnimation = pauseAnimation
+        ;(slider as any).resumeAnimation = resumeAnimation
       },
     ]
   )
+
+  const handleMouseEnter = () => {
+    if (sliderInstanceRef.current && (sliderInstanceRef.current as any).pauseAnimation) {
+      ;(sliderInstanceRef.current as any).pauseAnimation()
+    }
+  }
+
+  const handleMouseLeave = () => {
+    if (sliderInstanceRef.current && (sliderInstanceRef.current as any).resumeAnimation) {
+      ;(sliderInstanceRef.current as any).resumeAnimation()
+    }
+  }
 
   return (
     <section id="real-projects" className="mt-10 w-[100%] md:w-4xl ">
@@ -115,7 +146,14 @@ const ProjectsSection: React.FC = () => {
           {t("home.projects.carousel_title")}
         </h3>
       </div>
-      <div ref={sliderRef} className="keen-slider">
+      <div 
+        ref={sliderRef} 
+        className="keen-slider"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onTouchStart={handleMouseEnter}
+        onTouchEnd={handleMouseLeave}
+      >
         {projects.map((project, idx) => {
           const content = <ProjectCard {...project} />
 
